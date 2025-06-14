@@ -1,4 +1,4 @@
-from figure import Figure
+from src.figure import Figure
 
 
 class Circle(Figure):
@@ -16,6 +16,3 @@ class Circle(Figure):
     @property
     def perimeter(self):
         return 2 * self.pi * self.radius
-
-
-circle = Circle(2)

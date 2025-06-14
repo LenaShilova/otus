@@ -1,5 +1,5 @@
 from math import sqrt
-from figure import Figure
+from src.figure import Figure
 
 
 class Triangle(Figure):
@@ -20,6 +20,3 @@ class Triangle(Figure):
     @property
     def perimeter(self):
         return self.side_a + self.side_b + self.side_c
-
-
-triangle = Triangle(10, 15, 20)

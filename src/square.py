@@ -1,4 +1,4 @@
-from rectangle import Rectangle
+from src.rectangle import Rectangle
 
 
 class Square(Rectangle):
@@ -6,6 +6,3 @@ class Square(Rectangle):
         if side_a <= 0:
             raise ValueError("Square sides can't be less than 0")
         super().__init__(side_a, side_a)
-
-
-square = Square(5)
