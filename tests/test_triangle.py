@@ -3,15 +3,17 @@ from src.triangle import Triangle
 
 
 @pytest.mark.parametrize(
-    "sides_type",
+    ("side_a", "side_b", "side_c", "area"),
     [
+        (10, 15, 20, 72.6184),
+        (10.1, 15.1, 20.1, 73.9775)
+    ],
+    ids=[
         "integer",
         "float"
     ]
 )
-def test_triangle_area(get_triangle_sides, sides_type):
-    side_a, side_b, side_c, area = get_triangle_sides(sides_type=sides_type)
-
+def test_triangle_area(side_a, side_b, side_c, area):
     t = Triangle(side_a, side_b, side_c)
     assert t.area == pytest.approx(area, rel=1e-4), \
         f"Area for triangle with sides {side_a}, {side_b} and {side_c} should be approximately {area}"

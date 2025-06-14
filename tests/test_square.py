@@ -3,15 +3,17 @@ from src.square import Square
 
 
 @pytest.mark.parametrize(
-    "side_type",
+    ("side_a", "area"),
     [
+        (2, 4),
+        (2.1, 4.41)
+    ],
+    ids=[
         "integer",
         "float"
     ]
 )
-def test_rectangle_area(get_square_side, side_type):
-    side_a, area = get_square_side(side_type=side_type)
-
+def test_rectangle_area(side_a, area):
     s = Square(side_a)
     assert s.area == area, f"Area for square with side {side_a} should be {area}"
 
