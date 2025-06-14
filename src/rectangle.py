@@ -1,4 +1,4 @@
-from figure import Figure
+from src.figure import Figure
 
 
 class Rectangle(Figure):
@@ -15,6 +15,3 @@ class Rectangle(Figure):
     @property
     def perimeter(self):
         return (self.side_a + self.side_b) * 2
-
-
-rectangle = Rectangle(3, 5)
