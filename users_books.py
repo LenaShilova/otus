@@ -1,6 +1,6 @@
 import json
 import csv
-from csv import DictReader
+
 
 BOOKS_FILE = "resources/books.csv"
 USER_FILE = "resources/users.json"
@@ -24,5 +24,25 @@ for book in books:
     users[user_index]["books"].append(book)
     user_index = (user_index + 1) % len(users)
 
+
+result = [
+    {
+        "name": u["name"],
+        "gender": u["gender"],
+        "address": u["address"],
+        "age": u["age"],
+        "books": [
+            {
+                "title": b["Title"],
+                "author": b["Author"],
+                "pages": int(b["Pages"]),
+                "genre": b["Genre"]
+            }
+            for b in u["books"]
+        ]
+    }
+    for u in users
+]
+
 with open(RESULT_FILE, "w") as f:
-    json.dump(users, f, ensure_ascii=False, indent=2)
+    json.dump(result, f, ensure_ascii=False, indent=2)
