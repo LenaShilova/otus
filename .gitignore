@@ -2,3 +2,7 @@ __pycache__/
 *.pyc
 .env
 .idea/
+**/.DS_Store
+
+resources/books.csv
+resources/users.json
